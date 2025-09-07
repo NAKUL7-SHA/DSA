@@ -17,9 +17,9 @@ public:
                 
 
             }
-            else{
-                if (ans.empty() || ans.back() != b[j]) {
-                    ans.push_back(b[j]);
+            else{ //a[i]==b[j]
+                if (ans.empty() || ans.back() != a[i]) {
+                    ans.push_back(a[i]);
                 }
                 i++;
                 j++;
