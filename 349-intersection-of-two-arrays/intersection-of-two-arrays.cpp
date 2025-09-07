@@ -18,8 +18,8 @@ public:
 
             }
             else{
-                if (ans.empty() || ans.back() != a[i]) {
-                    ans.push_back(a[i]);
+                if (ans.empty() || ans.back() != b[j]) {
+                    ans.push_back(b[j]);
                 }
                 i++;
                 j++;
