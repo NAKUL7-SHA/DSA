@@ -1,21 +1,32 @@
-#include<bits/stdc++.h>
-using namespace std;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& arr, int target) {
+           // code here
         int n=arr.size();
-        map<int ,int> mpp;
+        vector<pair<int,int>>nums;
         for(int i=0;i<n;i++){
-            int a=arr[i];
-            int more_needed=target-a;
-            if(mpp.find(more_needed)!=mpp.end()){
-                return {mpp[more_needed],i};
-
-            }
-            mpp[a]=i;
-
+            nums.push_back({arr[i],i}); // // Store values with their original indices
         }
-        return {-1,-1};
+        int i=0,j=n-1;
+       sort(nums.begin(), nums.end());
         
+        while(i<j){ // this is for jab tak right left se chota hai
+          int sum = nums[i].first + nums[j].first;
+        if(sum==target){
+         return {nums[i].second, nums[j].second}; // original indices
+
+            
+        }
+        else if(sum>target){
+            j--;
+            
+        }
+        else{
+            i++;
+        }
+            
+        }
+    
+    return {-1,-1};
     }
 };
