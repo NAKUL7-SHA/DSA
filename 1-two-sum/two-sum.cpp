@@ -1,32 +1,19 @@
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& arr, int target) {
-           // code here
-        int n=arr.size();
-        vector<pair<int,int>>nums;
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n=nums.size();
+        map<int ,int> mpp;
         for(int i=0;i<n;i++){
-            nums.push_back({arr[i],i}); // // Store values with their original indices
-        }
-        int i=0,j=n-1;
-       sort(nums.begin(), nums.end());
-        
-        while(i<j){ // this is for jab tak right left se chota hai
-          int sum = nums[i].first + nums[j].first;
-        if(sum==target){
-         return {nums[i].second, nums[j].second}; // original indices
+            int a=nums[i];
+            int remaining=target-a;
+            if(mpp.find(remaining)!=mpp.end()){
+                return {mpp[remaining],i};
 
-            
+            }
+            mpp[a]=i;
+
         }
-        else if(sum>target){
-            j--;
-            
-        }
-        else{
-            i++;
-        }
-            
-        }
-    
-    return {-1,-1};
+        return {-1,-1};
+        
     }
 };
