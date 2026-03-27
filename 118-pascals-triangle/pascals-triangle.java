@@ -14,8 +14,8 @@ class Solution {
                 if (j == 0 || j == i) {
                     arr.get(i).add(1);
                 } else {
-                    int value = arr.get(i - 1).get(j) + arr.get(i - 1).get(j - 1);
-                    arr.get(i).add(value);
+                  //  int value = arr.get(i - 1).get(j) + arr.get(i - 1).get(j - 1);
+                    arr.get(i).add(arr.get(i - 1).get(j) + arr.get(i - 1).get(j - 1));
                 }
             }
         }
