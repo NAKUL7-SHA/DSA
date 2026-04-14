@@ -1,16 +1,21 @@
-#include<bits/stdc++.h>
-using namespace std;
-#include<iostream>
 class Solution {
 public:
-    void rotate(vector<int>& arr, int k) {
-        int n=arr.size();
+    void rotate(vector<int>& nums, int k) {
+          int n=nums.size();
         k=k%n;
-          reverse(arr.begin(),arr.end());
-  reverse(arr.begin(),arr.begin()+k);
-  reverse(arr.begin()+k,arr.end());
+        vector<int> temp(k);
+        for(int i=0;i<k;i++){
+            temp[i]=nums[n-k+i];
 
-  
+        }
+        for(int i=n-k-1;i>=0;i--){
+           nums[i + k] = nums[i];
+         
+        }
+        for(int i=0;i<k;i++){
+            nums[i]=temp[i];
+        }
+
         
     }
 };
